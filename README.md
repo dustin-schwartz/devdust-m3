@@ -1,4 +1,4 @@
-# devdust-m3
+# DevDust
 
 ## Build Setup
 
