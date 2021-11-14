@@ -6,7 +6,7 @@
       class="col-sm-4 col-12"
     >
       <time :datetime="article.published">
-        {{ formatDate(article.published) }}
+        {{ $formatDate(article.published) }}
       </time>
       <h3 class="headline mb-3">
         <NuxtLink :to="`/blog/${article.slug}/`">
@@ -26,23 +26,13 @@ export default {
       required: true,
     },
   },
-  methods: {
-    formatDate(date) {
-      return new Date(date).toLocaleDateString('en-US', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-      })
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
 article {
   padding-top: 2rem;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--color-border);
   margin-top: 2rem;
 
   &:first-of-type {
