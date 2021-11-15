@@ -17,7 +17,7 @@ export default Vue.extend({
     const articles = await $content('articles')
       .where({ status: 'live' })
       .only(['title', 'description', 'slug', 'published'])
-      .sortBy('published', 'asc')
+      .sortBy('published', 'desc')
       .fetch()
 
     return {
