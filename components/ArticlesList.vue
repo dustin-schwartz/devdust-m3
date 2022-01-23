@@ -18,15 +18,17 @@
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   props: {
     articles: {
       type: Array,
       required: true,
     },
   },
-}
+})
 </script>
 
 <style lang="scss" scoped>
@@ -41,9 +43,10 @@ article {
 }
 time {
   font-size: 1.4rem;
-  color: #999;
+  color: var(--brand-blue);
 }
 h3 {
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 </style>

@@ -1,14 +1,7 @@
 <template>
   <footer role="contentinfo">
     <div class="container">
-      <p>
-        © {{ getYear() }} Dustin Schwartz. All rights reserved. •
-        <a href="https://twitter.com/developerdustin" target="_blank">
-          Twitter
-        </a>
-        •
-        <a href="https://github.com/dustin-schwartz" target="_blank">GitHub</a>
-      </p>
+      <p>© {{ getYear() }} Dustin Schwartz. All rights reserved.</p>
     </div>
   </footer>
 </template>
