@@ -59,6 +59,17 @@ export default Vue.extend({
 svg {
   width: 100%;
   height: auto;
+
+  @include media(not-mobile) {
+    &:hover {
+      .logo-stop-1 {
+        stop-color: var(--brand-navy);
+      }
+      .logo-stop-2 {
+        stop-color: var(--brand-aqua);
+      }
+    }
+  }
 }
 .logo-stop-color {
   transition: stop-color 0.35s ease;
@@ -75,13 +86,5 @@ svg {
 }
 .logo-d-inner {
   fill: url(#logo-gradient-2);
-}
-svg:hover {
-  .logo-stop-1 {
-    stop-color: var(--brand-navy);
-  }
-  .logo-stop-2 {
-    stop-color: var(--brand-aqua);
-  }
 }
 </style>

@@ -53,11 +53,17 @@ p {
 }
 a {
   color: var(--brand-white);
-  text-decoration-color: var(--brand-dark-navy);
-  will-change: text-decoration-color;
-  transition: text-decoration-color 0.2s ease-in-out;
 
-  &:hover {
+  @include media(not-mobile) {
+    text-decoration-color: var(--brand-dark-navy);
+    will-change: text-decoration-color;
+    transition: text-decoration-color 0.2s ease-in-out;
+
+    &:hover {
+      text-decoration-color: var(--brand-red);
+    }
+  }
+  @include media(mobile) {
     text-decoration-color: var(--brand-red);
   }
 }
@@ -77,4 +83,9 @@ a {
   margin: 0 auto;
   max-width: 800px;
   padding: 0 15px;
+}
+
+// Mobile Navigation
+.nav-open {
+  overflow: hidden;
 }

@@ -18,5 +18,17 @@ export default Vue.extend({
     LayoutFooter,
     LayoutHeader,
   },
+  head() {
+    return {
+      htmlAttrs: {
+        class: this.$accessor.mobileNavShow ? 'nav-open' : '',
+      },
+    }
+  },
+  watch: {
+    $route() {
+      this.$accessor.setMobileNavShow(false)
+    },
+  },
 })
 </script>

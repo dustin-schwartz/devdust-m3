@@ -4,7 +4,7 @@
       <nuxt-link id="logo" to="/">
         <logo :width="50" />
       </nuxt-link>
-      <div id="links" :class="{ show: showMobileNav }">
+      <div id="links" :class="{ show: mobileNavShow }">
         <nav id="nav">
           <nuxt-link v-for="item in nav" :key="item.url" :to="item.url">
             {{ item.title }}
@@ -21,9 +21,9 @@
             <icons :icon="item.icon" />
           </a>
         </div>
-        <button aria-label="Close" @click="showMobileNav = false"></button>
+        <button aria-label="Close" @click="setMobileNavShow(false)"></button>
       </div>
-      <button id="mobileMenuButton" @click="showMobileNav = true"></button>
+      <button id="mobileMenuButton" @click="setMobileNavShow(true)"></button>
     </div>
   </header>
 </template>
@@ -63,8 +63,17 @@ export default Vue.extend({
           url: 'https://www.linkedin.com/in/dustinschwartz/',
         },
       ],
-      showMobileNav: false,
     }
+  },
+  computed: {
+    mobileNavShow() {
+      return this.$accessor.mobileNavShow
+    },
+  },
+  methods: {
+    setMobileNavShow(display: boolean) {
+      this.$accessor.setMobileNavShow(display)
+    },
   },
 })
 </script>
@@ -91,20 +100,26 @@ header {
   }
   a {
     text-decoration: none;
-    transition: color 0.25s ease-in-out;
-    will-change: color;
 
-    &:hover {
-      color: var(--brand-red);
+    @include media(not-mobile) {
+      transition: color 0.25s ease-in-out;
+      will-change: color;
+
+      &:hover {
+        color: var(--brand-red);
+      }
     }
   }
   svg {
     fill: var(--brand-blue);
-    transition: fill 0.25s ease-in-out;
-    will-change: fill;
 
-    &:hover {
-      fill: var(--brand-red);
+    @include media(not-mobile) {
+      transition: fill 0.25s ease-in-out;
+      will-change: fill;
+
+      &:hover {
+        fill: var(--brand-red);
+      }
     }
   }
   button {
@@ -146,13 +161,15 @@ header {
     transform: translateX(0);
     transition: transform 0.35s ease-in-out;
     will-change: transform;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
 
     &::before {
       content: '';
       position: absolute;
       inset: 0;
       background: var(--brand-dark-navy);
-      opacity: 0.95;
+      opacity: 0.9;
     }
     > * {
       position: relative;

@@ -27,6 +27,8 @@ export default {
     '@nuxt/typescript-build',
     // https://github.com/nuxt-community/style-resources-module/
     '@nuxtjs/style-resources',
+    // https://typed-vuex.roe.dev/
+    'nuxt-typed-vuex',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
