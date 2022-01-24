@@ -25,6 +25,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/typescript
     '@nuxt/typescript-build',
+    // https://github.com/nuxt-community/style-resources-module/
+    '@nuxtjs/style-resources',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -40,6 +42,10 @@ export default {
     manifest: {
       lang: 'en',
     },
+  },
+
+  styleResources: {
+    scss: ['~assets/css/_mixins.scss'],
   },
 
   // Content module configuration: https://go.nuxtjs.dev/config-content

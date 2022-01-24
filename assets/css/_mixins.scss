@@ -1,0 +1,17 @@
+@mixin media($name) {
+
+  // Set Range
+  $range: max-width;
+
+  @if $name == 'not-mobile' {
+    $range: min-width;
+  }
+
+  // Set Breakpoint
+  $breakpoint: map-get((
+    mobile : 599px,
+    not-mobile : 600px,
+  ), $name);
+
+  @media ($range: $breakpoint) { @content; }
+}
